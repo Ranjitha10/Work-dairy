@@ -1,0 +1,100 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="css/style2.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfonts-->
+<link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" >
+function validate(pid,pass,pass2,fname,lname,dept,phone,email) {
+var reg=/^[0-9][0-9][A-Z][A-Z][A-Z][0-9][0-9]$/;
+
+if((pid.value == "Professor-id") || (pass.value == "Password " ) || (pass2.value == "Re-enter Password ") || (fname.value == "First Name") || (lname.value == "Last Name") || (phone.value == "Phone ") || (email.value == "your@email.com "))
+{
+alert("Field Cannot be blank");
+return false;
+//window.location="index.html";
+}
+//IsNumeric 
+else if(!pid.value.match(reg))
+{
+alert("Enter a valid ID only");
+//window.location="index.html";
+return false;
+}
+else if( phone.value.length > 10 )
+{
+alert("Enter a valid ph number");
+return false;
+}
+else if( pass.value.length < 8 )
+{
+alert("password should be of atleast 8 characters long!!");
+return false;
+}
+else if( pass.value != pass2.value )
+{
+alert("passwords donot match!!");
+return false;
+}
+else if(dept.value == "None")
+{
+	alert("choose department");
+	return false;
+}
+else {
+//document.main.submit();
+return true;	
+}
+}
+
+</script>
+<!--//webfonts-->
+</head>
+<body>
+<div class="main">
+	<h2>Registration</h2>
+      
+		<form action="signup.php" method="POST" name="main" enctype="multipart/form-data">
+		   <div class="lable">
+		        <div class="col_1_of_2 span_1_of_2">	<input type="text" class="text" value="First Name" name="fname" id="fname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First Name';}" ></div>
+                <div class="col_1_of_2 span_1_of_2"><input type="text" class="text" value="Last Name" value="lname" id="lname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}"></div>
+                <div class="clear"> </div>
+		   </div>
+		   <div class="lable-2">
+			<input type="text" class="text" value="Professor-id " name="pid" id="pid" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Professor-id ';}"></br>
+		        <input type="text" class="text" value="your@email.com " name="email" id="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'your@email.com ';}"></br>
+		        <input type="password" class="text" value="Password " name="pass" id="pass" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password ';}"></br>
+			<input type="password" class="text" value="Re-enter Password " name="pass2" id="pass2" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Reenter Password ';}"></br>
+			<!--<input type="text" class="text" value="Department " name="dept" id="dept" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Department ';}">-->
+			
+			<input type="text" class="text" value="Phone " name="phone" id="phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone ';}"></br>
+			<select class="sel" name="dept" id="dept">
+			<option value="None" selected="selected">--Choose Department--</option>
+			<option>MCA</option>
+			<option>CSE</option>
+			<option>ECE</option>
+			</select>
+		   </div></br>
+		   <h3>By creating an account, you agree to our <span class="term"><a href="#">Terms & Conditions</a></span></h3>
+		   <div class="submit">
+			  <input type="submit" name="sub" value="Create account" onclick="return validate(pid,pass,pass2,fname,lname,dept,phone,email)">
+		   </div>
+		   <div class="clear"> </div>
+		</form>
+		<!-----//end-main---->
+		</div>
+		 <!-----start-copyright---->
+   		
+				<!-----//end-copyright---->
+</body>
+</html>
